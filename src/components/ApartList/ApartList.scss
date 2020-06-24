@@ -1,2 +1,12 @@
-.apart-list {
+@import '../../styles/base/abstracts';
+.apart {
+  &__item {
+    filter: brightness(92%) grayscale(20%);
+
+    transition: all $anim-duratuion $anim-function;
+
+    &:hover {
+      filter: brightness(100%) grayscale(0%);
+    }
+  }
 }

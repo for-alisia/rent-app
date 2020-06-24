@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import App from './components/App';
-import ErrorBoundary from './components/ErrorBoundry';
+import App from './App';
+import ErrorBoundary from './serviceComponents/ErrorBoundry';
 import ApartService from './services/apartService';
-import { ApartServiceProvider } from './components/ApartServiceContext';
+import { ApartServiceProvider } from './serviceComponents/ApartServiceContext';
 
 import store from './store';
 

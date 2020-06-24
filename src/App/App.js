@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import HomePage from '../../Pages/HomePage';
-import ApartsPage from '../../Pages/ApartsPage';
-import AboutPage from '../../Pages/AboutPage';
-import Reviews from '../../Pages/Reviews';
-import ApartDetail from '../../Pages/ApartDetail';
-import NotFound from '../../Pages/NotFound';
+import HomePage from '../Pages/HomePage';
+import ApartsPage from '../Pages/ApartsPage';
+import AboutPage from '../Pages/AboutPage';
+import Reviews from '../Pages/Reviews';
+import ApartDetail from '../Pages/ApartDetail';
+import NotFound from '../Pages/NotFound';
 
 import './App.scss';
 

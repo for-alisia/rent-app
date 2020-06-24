@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import { withApartService } from '../hoc';
+import { withApartService } from '../../serviceComponents/hoc';
 import { apartsLoaded } from '../../actions';
 import { compose } from '../../utils';
 
@@ -28,10 +28,10 @@ const ApartList = (props) => {
   }
 
   return (
-    <ul className="apart-list">
+    <ul className="apart__list">
       {aparts.map((apart) => {
         return (
-          <li key={apart.id}>
+          <li key={apart.id} className="apart__item">
             <ApartListItem apart={apart} />
           </li>
         );
