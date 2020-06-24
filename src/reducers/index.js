@@ -1,5 +1,6 @@
 const initialState = {
   aparts: [],
+  loading: true,
 };
 
 const reducer = (state = initialState, action) => {
@@ -7,6 +8,7 @@ const reducer = (state = initialState, action) => {
     case 'APARTS_LOADED':
       return {
         aparts: action.payload,
+        loading: false,
       };
     default:
       return state;
