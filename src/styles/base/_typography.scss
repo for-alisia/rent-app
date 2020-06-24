@@ -1,0 +1,32 @@
+@font-face {
+  font-family: Vienna;
+  src: url('/fonts/vienna.otf') format('opentype');
+}
+
+@font-face {
+  font-family: Source;
+  src: url('/fonts/SourceSansPro-Regular.ttf');
+}
+
+@font-face {
+  font-family: Ubuntu;
+  src: url('/fonts/Ubuntu-Regular.ttf');
+}
+
+@font-face {
+  font-family: Ubuntu-Light;
+  src: url('/fonts/Ubuntu-Light.ttf');
+}
+
+body {
+  font-family: 'Source';
+  color: $dark-blue;
+
+  font-size: rem(16);
+
+  line-height: rem(20);
+}
+
+a {
+  font-family: 'Ubuntu-Light';
+}

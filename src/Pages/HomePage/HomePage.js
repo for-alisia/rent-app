@@ -1,14 +1,15 @@
 import React from 'react';
 
-import ApartList from '../../components/ApartList';
+import Welcome from '../../components/Welcome';
+import Overview from '../../components/Overview';
 
 import './HomePage.scss';
 
 const HomePage = () => {
   return (
-    <div>
-      <h2>Home Page</h2>
-      <ApartList />
+    <div className="page home-page">
+      <Welcome />
+      <Overview />
     </div>
   );
 };

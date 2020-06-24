@@ -1,0 +1,43 @@
+@import '../../styles/base/abstracts.scss';
+
+.navigation {
+  margin-bottom: rem(80);
+
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: rem(44);
+    }
+  }
+
+  &__link {
+    color: $dark-blue;
+
+    &::after {
+      content: '';
+      display: block;
+      height: 1px;
+      background-color: $gold;
+
+      transform: scaleX(0);
+      transition: all $anim-duratuion $anim-function;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+
+  .isActiveLink {
+    border-bottom: 1px solid $gold;
+
+    font-family: 'Ubuntu';
+
+    &::after {
+      display: none;
+    }
+  }
+}

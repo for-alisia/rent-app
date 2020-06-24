@@ -1,0 +1,85 @@
+// Colors (Main Pallet)
+$dark-blue: #282d3c;
+$green: #264e36;
+$dark-green: #234932;
+$gold: #b89b72;
+$coral: #f5d6c6;
+
+// BreakPoints
+
+$XS: 26.25em;
+$S: 37.5em;
+$M: 56.25em;
+$L: 75em;
+$XL: 120em;
+
+$default-font-size: 16px;
+
+$anim-duratuion: 0.3s;
+$anim-function: ease-out;
+
+@function rem($pixels, $context: $default-font-size) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1rem;
+}
+
+// Media Queries
+/*
+0 - 420px:      Small-phone - XS
+0 - 600px:      Phone  - S
+600px- 900px:   Tablet, Phone portrait  - M
+900px - 1200px: Tablet landscape  - L
+1800px + :      Big desltop  -XL
+$breakpoint arguement choices:
+- XS
+- S
+- M
+- L
+- XL
+*/
+@mixin media($breakpoint) {
+  // >420px
+  @if $breakpoint == XS {
+    @media only screen and (min-width: $XS) {
+      @content;
+    }
+  }
+  //>600px
+  @if $breakpoint == S {
+    @media only screen and (min-width: $S) {
+      @content;
+    }
+  }
+  //>900px
+  @if $breakpoint == M {
+    @media only screen and (min-width: $M) {
+      @content;
+    }
+  }
+  //>1200px
+  @if $breakpoint == L {
+    @media only screen and (min-width: $L) {
+      @content;
+    }
+  }
+
+  //>1272px
+  @if $breakpoint == CNT {
+    @media only screen and (min-width: 1560px) {
+      @content;
+    }
+  }
+  //>1800px
+  @if $breakpoint == XL {
+    @media only screen and (min-width: $XL) {
+      @content;
+    }
+  }
+}

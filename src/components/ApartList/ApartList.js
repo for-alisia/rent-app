@@ -28,7 +28,7 @@ const ApartList = (props) => {
   }
 
   return (
-    <ul>
+    <ul className="apart-list">
       {aparts.map((apart) => {
         return (
           <li key={apart.id}>
