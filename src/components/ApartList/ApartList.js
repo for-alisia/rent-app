@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import { withApartService } from '../../serviceComponents/hoc';
-import { apartsLoaded } from '../../actions';
-import { compose } from '../../utils';
+import { getAparts, getError, getIsLoading, fetchApartsRequest } from '../../store/aparts';
 
 import ApartListItem from '../ApartListItem';
 import Spinner from '../Spinner';
@@ -11,21 +9,16 @@ import Spinner from '../Spinner';
 import './ApartList.scss';
 
 const ApartList = (props) => {
-  const { aparts, apartService, apartsLoaded, loading } = props;
+  const { fetchApartsRequest } = props;
 
   useEffect(() => {
-    apartService
-      .getAparts()
-      .then(({ data, success, info }) => {
-        console.log(info);
-        apartsLoaded(data);
-      })
-      .catch((err) => console.log(err));
-  }, [apartService, apartsLoaded]);
+    fetchApartsRequest();
+  }, [fetchApartsRequest]);
 
-  if (loading) {
-    return <Spinner />;
-  }
+  const { aparts, isLoading, error } = props;
+
+  if (isLoading) return <Spinner />;
+  if (error) return <p>Произошла сетевая ошибка</p>;
 
   return (
     <ul className="apart__list">
@@ -40,10 +33,11 @@ const ApartList = (props) => {
   );
 };
 
-const mapStateToProps = ({ aparts, loading }) => {
-  return { aparts, loading };
-};
+const mapStateToProps = (state) => ({
+  aparts: getAparts(state),
+  isLoading: getIsLoading(state),
+  error: getError(state),
+});
+const mapDispatchToProps = { fetchApartsRequest };
 
-const mapDispatchToProps = { apartsLoaded };
-
-export default compose(withApartService(), connect(mapStateToProps, mapDispatchToProps))(ApartList);
+export default connect(mapStateToProps, mapDispatchToProps)(ApartList);
