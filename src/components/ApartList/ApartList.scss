@@ -1,12 +1,33 @@
 @import '../../styles/base/abstracts';
 .apart {
+  &__list {
+    display: grid;
+    grid-gap: rem(8);
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: rem(225) rem(225) rem(225);
+    grid-template-areas:
+      'a a a a a a b b b b b b'
+      'c c c d d d b b b b b b'
+      'e e e e e e f f f f . .';
+  }
   &__item {
-    filter: brightness(92%) grayscale(20%);
-
-    transition: all $anim-duratuion $anim-function;
-
-    &:hover {
-      filter: brightness(100%) grayscale(0%);
+    &:first-child {
+      grid-area: a;
+    }
+    &:nth-child(2) {
+      grid-area: b;
+    }
+    &:nth-child(3) {
+      grid-area: c;
+    }
+    &:nth-child(4) {
+      grid-area: d;
+    }
+    &:nth-child(5) {
+      grid-area: e;
+    }
+    &:last-child {
+      grid-area: f;
     }
   }
 }

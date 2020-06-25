@@ -4,24 +4,20 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import App from './App';
-import ErrorBoundary from './serviceComponents/ErrorBoundry';
-import ApartService from './services/apartService';
-import { ApartServiceProvider } from './serviceComponents/ApartServiceContext';
+import ErrorBoundary from './components/ErrorBoundry';
 
-import store from './store';
+import createStore from './store';
 
 import './styles/main.scss';
 
-const apartService = new ApartService();
+const store = createStore();
 
 ReactDOM.render(
   <Provider store={store}>
     <ErrorBoundary>
-      <ApartServiceProvider value={apartService}>
-        <Router>
-          <App />
-        </Router>
-      </ApartServiceProvider>
+      <Router>
+        <App />
+      </Router>
     </ErrorBoundary>
   </Provider>,
   document.getElementById('root')
