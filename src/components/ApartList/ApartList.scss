@@ -3,12 +3,12 @@
   &__list {
     display: grid;
     grid-gap: rem(8);
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    //grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: rem(225) rem(225) rem(225);
     grid-template-areas:
       'a a a a a a b b b b b b'
       'c c c d d d b b b b b b'
-      'e e e e e e f f f f . .';
+      'e e e e e e f f f f g g';
   }
   &__item {
     &:first-child {
@@ -26,8 +26,28 @@
     &:nth-child(5) {
       grid-area: e;
     }
-    &:last-child {
+    &:nth-child(6) {
       grid-area: f;
+    }
+    &:last-child {
+      grid-area: g;
+    }
+  }
+  &__view-all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: rem(14);
+
+    a {
+      color: $dark-blue;
+    }
+    svg {
+      margin-left: rem(4);
+    }
+    svg path {
+      fill: $dark-blue;
     }
   }
 }

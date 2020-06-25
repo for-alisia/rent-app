@@ -1,0 +1,92 @@
+@import '../../styles/base/abstracts';
+@keyframes spinner {
+  0% {
+    background: $gold;
+  }
+  12.5% {
+    background: $gold;
+  }
+  12.625% {
+    background: $dark-blue;
+  }
+  100% {
+    background: $dark-blue;
+  }
+}
+
+.spinner {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transform: translateY(-15%);
+
+  &__blocks {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    overflow: hidden;
+    background: transparent;
+  }
+  &__main {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateZ(0) scale(1);
+    backface-visibility: hidden;
+    transform-origin: 0 0;
+  }
+  &__main div {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    box-sizing: content-box;
+    background: $dark-blue;
+    animation: spinner 1s linear infinite;
+  }
+
+  &__first {
+    left: 19px;
+    top: 19px;
+    animation-delay: 0s !important;
+  }
+  &__second {
+    left: 40px;
+    top: 19px;
+    animation-delay: 0.125s !important;
+  }
+  &__third {
+    left: 61px;
+    top: 19px;
+    animation-delay: 0.25s !important;
+  }
+  &__fourth {
+    left: 19px;
+    top: 40px;
+    animation-delay: 0.875s !important;
+  }
+  &__fifth {
+    left: 61px;
+    top: 40px;
+    animation-delay: 0.375s !important;
+  }
+
+  &__sixth {
+    left: 19px;
+    top: 61px;
+    animation-delay: 0.75s !important;
+  }
+  &__seventh {
+    left: 40px;
+    top: 61px;
+    animation-delay: 0.625s !important;
+  }
+  &__eight {
+    left: 61px;
+    top: 61px;
+    animation-delay: 0.5s !important;
+  }
+}
