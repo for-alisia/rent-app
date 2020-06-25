@@ -1,0 +1,40 @@
+@import '../../styles/base/abstracts';
+
+.logo {
+	display: flex;
+	align-items: center;
+
+	&__icon {
+		margin-right: rem(30);
+	}
+
+	&__title {
+		transform: translateY(6px);
+	}
+
+	&__company-name {
+		font-family: 'Brawler', serif;
+		font-size: rem(26);
+		letter-spacing: 1.6px;
+
+		margin-bottom: rem(7);
+	}
+
+	&__prefix {
+		text-transform: uppercase;
+	}
+
+	&__suffix {
+		text-transform: uppercase;
+	}
+
+	&__element {
+		margin-right: rem(5);
+		margin-left: rem(4);
+	}
+
+	&__slogan {
+		font-family: 'Roboto', sans-serif;
+		font-size: rem(15);
+	}
+}

@@ -1,31 +1,36 @@
 *,
 *::after,
 *::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
 }
 
 body {
-  box-sizing: border-box;
+	box-sizing: border-box;
 
-  background-color: $coral;
+	background-color: $coral;
 
-  min-height: 100vh;
+	min-height: 100vh;
 }
 
 img {
-  display: inline-block;
+	display: inline-block;
 }
 
 .page {
-  min-height: 100vh;
+	min-height: 100vh;
 }
 
 a {
-  text-decoration: none;
+	text-decoration: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+button {
+	-webkit-tap-highlight-color: transparent;
 }
 
 ul {
-  list-style-type: none;
+	list-style-type: none;
 }

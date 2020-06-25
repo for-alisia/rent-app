@@ -1,0 +1,20 @@
+@import '../../styles/base/abstracts';
+
+.button {
+	color: $gold;
+	border: 1px solid $gold;
+	background-color: transparent;
+
+	padding: rem(15) rem(23);
+
+	font-family: 'Ubuntu';
+	font-size: 1rem;
+
+	outline: none;
+
+	cursor: pointer;
+
+	&:focus {
+		outline: none;
+	}
+}
