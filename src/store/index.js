@@ -1,20 +1,27 @@
 import { createStore, compose, applyMiddleware } from 'redux';
-import { apartsFetchMiddleware } from './aparts';
+// Apart Saga
+import { handleAparts } from './aparts';
 import { combineReducers } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+// Reducer
 import aparts from './aparts';
 
 const rootReducer = combineReducers({
   aparts,
 });
 
+const apartsSagaMiddleware = createSagaMiddleware();
+
 const createAppStore = () => {
   const store = createStore(
     rootReducer,
     compose(
-      applyMiddleware(apartsFetchMiddleware),
+      applyMiddleware(apartsSagaMiddleware),
       window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (noop) => noop
     )
   );
+
+  apartsSagaMiddleware.run(handleAparts);
 
   return store;
 };

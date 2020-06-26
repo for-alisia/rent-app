@@ -1,89 +1,131 @@
 @import '../../styles/base/abstracts.scss';
 
 .welcome {
-	background-color: $green;
-	color: $coral;
+  background-color: $green;
+  color: $coral;
 
-	width: 50%;
+  width: 50%;
 
-	display: flex;
-	justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 
-	position: relative;
+  position: relative;
 
-	&__content {
-		position: relative;
-		z-index: 10;
-		max-width: rem(700);
-		width: 100%;
+  animation: slide-right 0.6s;
+  animation-timing-function: ease-out;
 
-		padding-top: rem(33);
-		padding-right: rem(46);
-	}
+  &__content {
+    position: relative;
+    z-index: 10;
+    max-width: rem(700);
+    width: 100%;
 
-	&__cta {
-		margin-top: rem(100);
-		margin-bottom: rem(76);
-	}
+    padding-top: rem(33);
+    padding-right: rem(46);
+  }
 
-	&__text {
-		margin-bottom: rem(23);
-	}
+  &__cta {
+    margin-top: rem(100);
+    margin-bottom: rem(76);
+  }
 
-	&__item {
-		text-align: right;
+  &__text {
+    margin-bottom: rem(23);
+  }
 
-		margin-bottom: rem(43);
+  &__item {
+    text-align: right;
 
-		border-bottom: 1px solid $gold;
-	}
+    margin-bottom: rem(43);
 
-	&__button {
-		text-align: right;
-		margin-top: rem(70);
-	}
+    border-bottom: 1px solid $gold;
+  }
 
-	&__decor-first {
-		position: absolute;
-		top: 63px;
-		right: 0;
+  &__button {
+    text-align: right;
+    margin-top: rem(70);
+  }
 
-		font-family: 'Vienna', sans-serif;
-		font-size: 11rem;
-		text-transform: uppercase;
+  &__decor-first {
+    position: absolute;
+    top: 63px;
+    right: 0;
 
-		color: $coral;
-		-webkit-text-stroke: 1px $coral;
-		-webkit-text-fill-color: transparent;
+    font-family: 'Vienna', sans-serif;
+    font-size: 11rem;
+    text-transform: uppercase;
 
-		opacity: 0.15;
-	}
-	&__decor-second {
-		position: absolute;
-		top: 154px;
-		right: 215px;
+    color: $coral;
+    -webkit-text-stroke: 1px $coral;
+    -webkit-text-fill-color: transparent;
 
-		font-family: 'Vienna', sans-serif;
-		font-size: 11rem;
+    opacity: 0.15;
+    animation: slide-down 0.5s;
+    animation-delay: 0.3s;
+    animation-fill-mode: both;
+  }
+  &__decor-second {
+    position: absolute;
+    top: 154px;
+    right: 215px;
 
-		color: $coral;
-		opacity: 0.05;
-	}
-	&__decor-third {
-		position: absolute;
-		top: 22%;
-		left: 49px;
-		z-index: 1;
+    font-family: 'Vienna', sans-serif;
+    font-size: 11rem;
 
-		font-family: 'Source-Black', sans-serif;
-		font-size: 12rem;
-		text-transform: uppercase;
-		writing-mode: vertical-lr;
+    color: $coral;
+    opacity: 0.05;
 
-		color: $dark-green;
+    animation: slide-down 0.5s;
+    animation-delay: 0.7s;
+    animation-fill-mode: both;
+  }
+  &__decor-third {
+    position: absolute;
+    top: 22%;
+    left: -12%;
+    z-index: -1;
 
-		transform: rotate(180deg);
+    font-family: 'Source-Black', sans-serif;
+    font-size: 12rem;
+    text-transform: uppercase;
+    writing-mode: vertical-lr;
 
-		opacity: 0.75;
-	}
+    color: $dark-green;
+
+    transform: rotate(180deg);
+
+    opacity: 0.75;
+
+    animation: slide-up 0.5s;
+    animation-delay: 0.5s;
+    animation-fill-mode: both;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: rotate(180deg) translateY(-150%);
+  }
+  100% {
+    transform: rotate(180deg) translateY(0);
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-16rem);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
