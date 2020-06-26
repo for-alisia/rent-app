@@ -11,8 +11,9 @@ const Welcome = () => {
 		<div className="welcome">
 			<div className="welcome__decor-first">Аренда</div>
 			<div className="welcome__decor-second">квартир</div>
-			<div className="welcome__decor-third">Казань</div>
+
 			<div className="welcome__content">
+				<div className="welcome__decor-third">Казань</div>
 				<Logo isLight />
 				<div className="welcome__cta">
 					<Title size="big" mb="2.5rem">
