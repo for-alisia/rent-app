@@ -41,3 +41,17 @@
     }
   }
 }
+
+.navigation.navigation--light {
+  &__link {
+    color: $coral;
+
+    &::after {
+      background-color: $coral;
+    }
+  }
+
+  .isActiveLink {
+    border-bottom: 1px solid $coral;
+  }
+}

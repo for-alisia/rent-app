@@ -6,7 +6,7 @@ import SocialMenu from '../SocialMenu';
 
 import './Overview.scss';
 
-const Overview = (props) => {
+const Overview = () => {
   return (
     <div className="overview">
       <Menu />
