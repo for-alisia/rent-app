@@ -1,9 +1,9 @@
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import { fetchApartsRequest, fetchApartsSuccess, fetchApartsFailure } from './actions';
 import tempData from './tempData';
 
 export function* handleAparts() {
-  yield takeEvery(fetchApartsRequest, function* () {
+  yield takeLatest(fetchApartsRequest, function* () {
     try {
       const result = yield call(getAparts);
       yield put(fetchApartsSuccess(result));

@@ -3,8 +3,9 @@ import { NavLink } from 'react-router-dom';
 import './Menu.scss';
 
 const Menu = (props) => {
+  const { isLight } = props;
   return (
-    <nav className="navigation">
+    <nav className={isLight ? 'navigation navigation--light' : 'navigation'}>
       <ul className="navigation__list">
         <li className="navigation__item">
           <NavLink to="/apartaments" activeClassName="isActiveLink" className="navigation__link">

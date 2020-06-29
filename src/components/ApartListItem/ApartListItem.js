@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { ReactComponent as BookmarkIcon } from '../../icons/bookmark.svg';
 import { ReactComponent as ShareIcon } from '../../icons/share.svg';
@@ -29,6 +30,14 @@ const ApartListItem = ({ apart }) => {
       </Link>
     </div>
   );
+};
+
+ApartListItem.propTypes = {
+  apart: PropTypes.shape({
+    title: PropTypes.string,
+    image: PropTypes.string,
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  }),
 };
 
 export default ApartListItem;

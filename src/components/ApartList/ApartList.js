@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { getAparts, getError, getIsLoading, fetchApartsRequest } from '../../store/aparts';
 
@@ -46,6 +47,13 @@ const mapStateToProps = (state) => ({
   isLoading: getIsLoading(state),
   error: getError(state),
 });
+
+ApartList.propTypes = {
+  aparts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  fetchApartsRequest: PropTypes.func.isRequired,
+};
+
 const mapDispatchToProps = { fetchApartsRequest };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ApartList);
