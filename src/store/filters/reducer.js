@@ -8,7 +8,7 @@ const currentFilters = handleActions(
     [setFilter]: (state, action) => {
       return { ...state, ...action.payload };
     },
-    [destroyFilters]: () => {},
+    [destroyFilters]: (_state) => ({}),
   },
   {}
 );

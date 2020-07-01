@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ApartList from '../ApartList';
+import ApartListOverview from '../ApartListOverview';
 import Menu from '../Menu';
 import SocialMenu from '../SocialMenu';
 
@@ -15,7 +15,7 @@ const Overview = () => {
       <div className="overview__social-menu">
         <SocialMenu />
       </div>
-      <ApartList />
+      <ApartListOverview />
     </div>
   );
 };

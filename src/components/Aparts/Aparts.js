@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ApartsList from '../ApartList';
+import ApartsList from '../ApartsList';
 import Menu from '../Menu';
 
 import './Aparts.scss';

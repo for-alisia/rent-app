@@ -1,17 +1,16 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { getAparts, getError, getIsLoading, fetchApartsRequest } from '../../store/aparts';
+import { getFilters } from '../../store/filters';
 
 import ApartListItem from '../ApartListItem';
 import Spinner from '../Spinner';
-import { ReactComponent as ArrowRightIcon } from '../../icons/Arrow.svg';
 
-import './ApartList.scss';
+import './ApartsList.scss';
 
-const ApartList = ({ fetchApartsRequest, aparts, isLoading, error }) => {
+const ApartsList = ({ fetchApartsRequest, aparts, isLoading, error, filters }) => {
   useEffect(() => {
     fetchApartsRequest();
   }, [fetchApartsRequest]);
@@ -22,18 +21,20 @@ const ApartList = ({ fetchApartsRequest, aparts, isLoading, error }) => {
   return (
     <ul className="apart__list">
       {aparts.map((apart) => {
-        return (
-          <li key={apart.id} className="apart__item">
-            <ApartListItem apart={apart} />
-          </li>
-        );
+        let isFiltered = true;
+        for (let key in filters) {
+          if ((key === 'guests' || key === 'bedrooms') && filters[key] > apart[key]) {
+            return (isFiltered = false);
+          }
+        }
+        if (isFiltered) {
+          return (
+            <li key={apart.id} className="apart__item">
+              <ApartListItem apart={apart} />
+            </li>
+          );
+        }
       })}
-      <li className="apart__view-all">
-        <Link to="/apartaments">
-          Посмотреть все варианты
-          <ArrowRightIcon />
-        </Link>
-      </li>
     </ul>
   );
 };
@@ -42,14 +43,15 @@ const mapStateToProps = (state) => ({
   aparts: getAparts(state),
   isLoading: getIsLoading(state),
   error: getError(state),
+  filters: getFilters(state),
 });
 
 const mapDispatchToProps = { fetchApartsRequest };
 
-ApartList.propTypes = {
+ApartsList.propTypes = {
   aparts: PropTypes.arrayOf(PropTypes.object).isRequired,
   isLoading: PropTypes.bool.isRequired,
   fetchApartsRequest: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ApartList);
+export default connect(mapStateToProps, mapDispatchToProps)(ApartsList);

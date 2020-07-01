@@ -4,23 +4,27 @@ import { connect } from 'react-redux';
 import Logo from '../Logo';
 import SocialMenu from '../SocialMenu';
 
-import { getFilters, setFilter } from '../../store/filters';
+import { getFilters, setFilter, destroyFilters } from '../../store/filters';
 
 import { ReactComponent as ArrowLabelIcon } from '../../icons/arrow-label-left.svg';
 
 import './Filters.scss';
 
-const Filters = ({ filters, setFilter }) => {
+const Filters = ({ filters, setFilter, destroyFilters }) => {
   const [open, setOpen] = useState(true);
 
   console.log(filters);
 
   const setFilterHandler = (e) => {
-    setFilter({ guests: 6 });
+    setFilter({ guests: 4 });
   };
 
   const setBedroomHandler = (e) => {
-    setFilter({ bedrooms: 3 });
+    setFilter({ bedrooms: 2 });
+  };
+
+  const setResetHandler = (e) => {
+    destroyFilters();
   };
 
   return (
@@ -39,7 +43,7 @@ const Filters = ({ filters, setFilter }) => {
         <main className="filters__main">
           <button onClick={setFilterHandler}>Set Guests here</button>
           <button onClick={setBedroomHandler}>Set Bedrooms here</button>
-          <p>{filters.guests}</p>
+          <button onClick={setResetHandler}>Set Bedrooms here</button>
         </main>
       </div>
     </div>
@@ -50,6 +54,6 @@ const mapStateToProps = (state) => ({
   filters: getFilters(state),
 });
 
-const mapDispatchToProps = { setFilter };
+const mapDispatchToProps = { setFilter, destroyFilters };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filters);
