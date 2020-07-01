@@ -1,0 +1,11 @@
+@import '../../styles/base/abstracts';
+.aparts {
+  width: 50%;
+
+  padding-left: rem(53);
+
+  &__menu {
+    margin-bottom: rem(48);
+    margin-top: rem(27);
+  }
+}

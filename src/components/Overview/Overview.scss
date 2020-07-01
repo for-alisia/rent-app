@@ -22,4 +22,13 @@
 
     background-color: $green;
   }
+
+  &__menu {
+    margin-bottom: rem(80);
+  }
+
+  &__social-menu {
+    margin-bottom: rem(28);
+    margin-left: rem(-8);
+  }
 }

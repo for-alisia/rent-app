@@ -1,9 +1,9 @@
 import React from 'react';
 import './SocialMenu.scss';
 
-const SocialMenu = () => {
+const SocialMenu = ({ isLight }) => {
   return (
-    <nav className="social-nav">
+    <nav className={isLight ? 'social-nav social-nav--light' : 'social-nav'}>
       <ul className="social-nav__list">
         <li className="social-nav__item">
           <a href="https://vk.com" className="social-nav__link">

@@ -9,8 +9,12 @@ import './Overview.scss';
 const Overview = () => {
   return (
     <div className="overview">
-      <Menu />
-      <SocialMenu />
+      <div className="overview__menu">
+        <Menu />
+      </div>
+      <div className="overview__social-menu">
+        <SocialMenu />
+      </div>
       <ApartList />
     </div>
   );

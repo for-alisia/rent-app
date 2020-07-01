@@ -1,40 +1,74 @@
 @import '../../styles/base/abstracts';
 
 .logo {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 
-	&__icon {
-		margin-right: rem(30);
-	}
+  &__icon {
+    margin-right: rem(30);
+  }
 
-	&__title {
-		transform: translateY(6px);
-	}
+  &__title {
+    transform: translateY(6px);
+    min-width: rem(133);
+  }
 
-	&__company-name {
-		font-family: 'Brawler', serif;
-		font-size: rem(26);
-		letter-spacing: 1.6px;
+  &__company-name {
+    font-family: 'Brawler', serif;
+    font-size: rem(26);
+    letter-spacing: 1.6px;
 
-		margin-bottom: rem(7);
-	}
+    margin-bottom: rem(7);
+  }
 
-	&__prefix {
-		text-transform: uppercase;
-	}
+  &__prefix {
+    text-transform: uppercase;
+  }
 
-	&__suffix {
-		text-transform: uppercase;
-	}
+  &__suffix {
+    text-transform: uppercase;
+  }
 
-	&__element {
-		margin-right: rem(5);
-		margin-left: rem(4);
-	}
+  &__element {
+    margin-right: rem(5);
+    margin-left: rem(4);
+  }
 
-	&__slogan {
-		font-family: 'Roboto', sans-serif;
-		font-size: rem(15);
-	}
+  &__slogan {
+    font-family: 'Roboto', sans-serif;
+    font-size: rem(15);
+  }
+}
+
+.logo__title--light {
+  color: $coral;
+}
+
+.logo.logo--small {
+  .logo__icon {
+    margin-right: rem(18);
+
+    svg {
+      width: rem(55);
+    }
+  }
+
+  .logo__title {
+    transform: translateY(2px);
+  }
+
+  .logo__company-name {
+    font-size: rem(20);
+    margin-bottom: 0;
+  }
+
+  .logo__slogan {
+    font-size: rem(12);
+  }
+
+  .logo__element {
+    svg {
+      height: rem(15);
+    }
+  }
 }
