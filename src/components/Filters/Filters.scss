@@ -76,6 +76,8 @@
   .filters__content {
     display: block;
     opacity: 1;
+
+    pointer-events: auto;
   }
 
   .filters__control {

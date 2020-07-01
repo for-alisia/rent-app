@@ -1,5 +1,5 @@
 import { fetchApartsFailure, fetchApartsSuccess, fetchApartsRequest } from './actions';
-import tempData from './tempData';
+import { tempData } from './tempData';
 
 export const apartsFetchMiddleware = (store) => (next) => (action) => {
   if (action.type === fetchApartsRequest.toString()) {

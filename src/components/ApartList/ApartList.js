@@ -11,14 +11,10 @@ import { ReactComponent as ArrowRightIcon } from '../../icons/Arrow.svg';
 
 import './ApartList.scss';
 
-const ApartList = (props) => {
-  const { fetchApartsRequest } = props;
-
+const ApartList = ({ fetchApartsRequest, aparts, isLoading, error }) => {
   useEffect(() => {
     fetchApartsRequest();
   }, [fetchApartsRequest]);
-
-  const { aparts, isLoading, error } = props;
 
   if (isLoading) return <Spinner />;
   if (error) return <p>Произошла сетевая ошибка</p>;
@@ -48,12 +44,12 @@ const mapStateToProps = (state) => ({
   error: getError(state),
 });
 
+const mapDispatchToProps = { fetchApartsRequest };
+
 ApartList.propTypes = {
   aparts: PropTypes.arrayOf(PropTypes.object).isRequired,
   isLoading: PropTypes.bool.isRequired,
   fetchApartsRequest: PropTypes.func.isRequired,
 };
-
-const mapDispatchToProps = { fetchApartsRequest };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ApartList);
