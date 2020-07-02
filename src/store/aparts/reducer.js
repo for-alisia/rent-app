@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions';
 import { combineReducers } from 'redux';
-import { fetchApartsRequest, fetchApartsSuccess, fetchApartsFailure } from './actions';
+import { fetchApartsRequest, fetchApartsSuccess, fetchApartsFailure, setPostsPerPage } from './actions';
 
 const elements = handleActions(
   {
@@ -27,8 +27,16 @@ const error = handleActions(
   null
 );
 
+const postsPerPage = handleActions(
+  {
+    [setPostsPerPage]: (_state, action) => action.payload,
+  },
+  9
+);
+
 export default combineReducers({
   elements,
   isLoading,
   error,
+  postsPerPage,
 });

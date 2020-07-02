@@ -3,11 +3,13 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import { handleAparts } from './aparts';
 import { combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-// Reducer
+// Reducers
 import aparts from './aparts';
+import filters from './filters';
 
 const rootReducer = combineReducers({
   aparts,
+  filters,
 });
 
 const apartsSagaMiddleware = createSagaMiddleware();

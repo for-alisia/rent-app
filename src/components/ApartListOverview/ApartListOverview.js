@@ -3,22 +3,18 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { getAparts, getError, getIsLoading, fetchApartsRequest } from '../../store/aparts';
+import { getError, getIsLoading, fetchApartsRequest, getFeaturedAparts } from '../../store/aparts';
 
 import ApartListItem from '../ApartListItem';
 import Spinner from '../Spinner';
 import { ReactComponent as ArrowRightIcon } from '../../icons/Arrow.svg';
 
-import './ApartList.scss';
+import './ApartListOverview.scss';
 
-const ApartList = (props) => {
-  const { fetchApartsRequest } = props;
-
+const ApartListOverview = ({ fetchApartsRequest, aparts, isLoading, error }) => {
   useEffect(() => {
     fetchApartsRequest();
   }, [fetchApartsRequest]);
-
-  const { aparts, isLoading, error } = props;
 
   if (isLoading) return <Spinner />;
   if (error) return <p>Произошла сетевая ошибка</p>;
@@ -43,17 +39,17 @@ const ApartList = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  aparts: getAparts(state),
+  aparts: getFeaturedAparts(state),
   isLoading: getIsLoading(state),
   error: getError(state),
 });
 
-ApartList.propTypes = {
+const mapDispatchToProps = { fetchApartsRequest };
+
+ApartListOverview.propTypes = {
   aparts: PropTypes.arrayOf(PropTypes.object).isRequired,
   isLoading: PropTypes.bool.isRequired,
   fetchApartsRequest: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = { fetchApartsRequest };
-
-export default connect(mapStateToProps, mapDispatchToProps)(ApartList);
+export default connect(mapStateToProps, mapDispatchToProps)(ApartListOverview);

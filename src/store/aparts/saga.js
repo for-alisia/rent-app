@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { fetchApartsRequest, fetchApartsSuccess, fetchApartsFailure } from './actions';
-import tempData from './tempData';
+import { tempData } from './tempData';
 
 export function* handleAparts() {
   yield takeLatest(fetchApartsRequest, function* () {

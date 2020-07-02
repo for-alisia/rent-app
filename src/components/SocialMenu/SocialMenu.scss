@@ -1,8 +1,6 @@
 @import '../../styles/base/abstracts';
 
 .social-nav {
-  margin-bottom: rem(28);
-  margin-left: rem(-8);
   &__list {
     display: flex;
   }
@@ -45,5 +43,17 @@
     font-size: rem(24);
 
     color: $dark-blue;
+  }
+}
+
+.social-nav.social-nav--light {
+  .social-nav__link {
+    color: $gold;
+  }
+
+  .social-nav__item {
+    &::after {
+      background-color: $dark-blue;
+    }
   }
 }
