@@ -5,15 +5,19 @@ import Logo from '../Logo';
 import SocialMenu from '../SocialMenu';
 
 import { getFilters, setFilter, destroyFilters } from '../../store/filters';
+import { getPostsPerPage, setPostsPerPage } from '../../store/aparts';
 
 import { ReactComponent as ArrowLabelIcon } from '../../icons/arrow-label-left.svg';
 
 import './Filters.scss';
 
-const Filters = ({ filters, setFilter, destroyFilters }) => {
-  const [open, setOpen] = useState(true);
+const Filters = ({ filters, setFilter, destroyFilters, postsPerPage, setPostsPerPage }) => {
+  const [open, setOpen] = useState(postsPerPage === 9 ? true : false);
 
-  console.log(filters);
+  const toggleHandler = (e) => {
+    setOpen(!open);
+    postsPerPage === 9 ? setPostsPerPage(16) : setPostsPerPage(9);
+  };
 
   const setFilterHandler = (e) => {
     setFilter({ guests: 4 });
@@ -29,7 +33,7 @@ const Filters = ({ filters, setFilter, destroyFilters }) => {
 
   return (
     <div className={open ? 'filters filters--opened' : 'filters'}>
-      <div className="filters__control" onClick={() => setOpen(!open)}>
+      <div className="filters__control" onClick={toggleHandler}>
         {open ? 'Скрыть фильтры' : 'Показать фильтры'}
       </div>
       <div className="filters__control-icon">
@@ -43,7 +47,7 @@ const Filters = ({ filters, setFilter, destroyFilters }) => {
         <main className="filters__main">
           <button onClick={setFilterHandler}>Set Guests here</button>
           <button onClick={setBedroomHandler}>Set Bedrooms here</button>
-          <button onClick={setResetHandler}>Set Bedrooms here</button>
+          <button onClick={setResetHandler}>Reset</button>
         </main>
       </div>
     </div>
@@ -52,8 +56,9 @@ const Filters = ({ filters, setFilter, destroyFilters }) => {
 
 const mapStateToProps = (state) => ({
   filters: getFilters(state),
+  postsPerPage: getPostsPerPage(state),
 });
 
-const mapDispatchToProps = { setFilter, destroyFilters };
+const mapDispatchToProps = { setFilter, destroyFilters, setPostsPerPage };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filters);

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { getAparts, getError, getIsLoading, fetchApartsRequest } from '../../store/aparts';
+import { getError, getIsLoading, fetchApartsRequest, getFeaturedAparts } from '../../store/aparts';
 
 import ApartListItem from '../ApartListItem';
 import Spinner from '../Spinner';
@@ -11,7 +11,7 @@ import { ReactComponent as ArrowRightIcon } from '../../icons/Arrow.svg';
 
 import './ApartListOverview.scss';
 
-const ApartListOverview = ({ fetchApartsRequest, aparts, isLoading, error, filters }) => {
+const ApartListOverview = ({ fetchApartsRequest, aparts, isLoading, error }) => {
   useEffect(() => {
     fetchApartsRequest();
   }, [fetchApartsRequest]);
@@ -39,7 +39,7 @@ const ApartListOverview = ({ fetchApartsRequest, aparts, isLoading, error, filte
 };
 
 const mapStateToProps = (state) => ({
-  aparts: getAparts(state),
+  aparts: getFeaturedAparts(state),
   isLoading: getIsLoading(state),
   error: getError(state),
 });

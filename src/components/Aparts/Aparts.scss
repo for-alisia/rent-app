@@ -1,8 +1,13 @@
 @import '../../styles/base/abstracts';
 .aparts {
-  width: 50%;
+  flex-basis: 100%;
+  flex: 1;
+
+  max-width: rem(1392);
+  margin: 0 auto;
 
   padding-left: rem(53);
+  padding-right: rem(51);
 
   &__menu {
     margin-bottom: rem(48);

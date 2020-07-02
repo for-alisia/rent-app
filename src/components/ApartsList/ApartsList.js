@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { getAparts, getError, getIsLoading, fetchApartsRequest } from '../../store/aparts';
+import { getError, getIsLoading, fetchApartsRequest, getApartsPerPage, getPostsPerPage } from '../../store/aparts';
 import { getFilters } from '../../store/filters';
 
 import ApartListItem from '../ApartListItem';
@@ -10,7 +10,7 @@ import Spinner from '../Spinner';
 
 import './ApartsList.scss';
 
-const ApartsList = ({ fetchApartsRequest, aparts, isLoading, error, filters }) => {
+const ApartsList = ({ fetchApartsRequest, aparts, isLoading, error, filters, postsPerPage }) => {
   useEffect(() => {
     fetchApartsRequest();
   }, [fetchApartsRequest]);
@@ -19,7 +19,7 @@ const ApartsList = ({ fetchApartsRequest, aparts, isLoading, error, filters }) =
   if (error) return <p>Произошла сетевая ошибка</p>;
 
   return (
-    <ul className="apart__list">
+    <ul className={postsPerPage === 9 ? 'apart__list-9' : 'apart__list-14'}>
       {aparts.map((apart) => {
         let isFiltered = true;
         for (let key in filters) {
@@ -34,16 +34,18 @@ const ApartsList = ({ fetchApartsRequest, aparts, isLoading, error, filters }) =
             </li>
           );
         }
+        return null;
       })}
     </ul>
   );
 };
 
 const mapStateToProps = (state) => ({
-  aparts: getAparts(state),
+  aparts: getApartsPerPage(state),
   isLoading: getIsLoading(state),
   error: getError(state),
   filters: getFilters(state),
+  postsPerPage: getPostsPerPage(state),
 });
 
 const mapDispatchToProps = { fetchApartsRequest };
