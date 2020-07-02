@@ -14,20 +14,20 @@ import './Filters.scss';
 const Filters = ({ filters, setFilter, destroyFilters, postsPerPage, setPostsPerPage }) => {
   const [open, setOpen] = useState(postsPerPage === 9 ? true : false);
 
-  const toggleHandler = (e) => {
+  const toggleHandler = (_e) => {
     setOpen(!open);
     postsPerPage === 9 ? setPostsPerPage(16) : setPostsPerPage(9);
   };
 
-  const setFilterHandler = (e) => {
+  const setFilterHandler = (_e) => {
     setFilter({ guests: 4 });
   };
 
-  const setBedroomHandler = (e) => {
+  const setBedroomHandler = (_e) => {
     setFilter({ bedrooms: 2 });
   };
 
-  const setResetHandler = (e) => {
+  const setResetHandler = (_e) => {
     destroyFilters();
   };
 
